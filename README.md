@@ -158,7 +158,7 @@ I would like to thank Microverse team, coding partners for the amazing collobrat
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/rachaouldbabaali/awsome-books/blob/module2day2/license) licensed.
+This project is [MIT](https://github.com/yashodhicy/todo-list/blob/c8af1f60e77e4aaef37081b70046d326b2eb235f/LICENSE) licensed.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
