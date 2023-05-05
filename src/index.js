@@ -1,5 +1,4 @@
 /* eslint-disable linebreak-style */
-import _ from 'lodash';
 import './style.css';
 
 const addTodoItem = require('./add.js');
@@ -8,12 +7,7 @@ const removeTodoItem = require('./remove.js');
 
 const todoListContainer = document.querySelector('.todolistbody');
 
-
-const todosData = JSON.parse(localStorage.getItem('todosData')) || [] ;
-
-// const saveTodosData = () => {
-//   localStorage.setItem('todosData', JSON.stringify(todosData));
-// };
+const todosData = JSON.parse(localStorage.getItem('todosData')) || [];
 
 const loadTodos = () => {
   if (todosData.length > 0) {
@@ -86,14 +80,16 @@ const loadTodos = () => {
           const textInput = li.querySelector('.listinput');
           if (textInput.hasAttribute('readonly')) {
             textInput.removeAttribute('readonly');
-            editButton.innerHTML = "Save";
+            editButton.innerHTML = 'Save';
           } else {
             const newValue = textInput.value;
             const todoIndex = todosData.findIndex((item) => item.index === todo.index);
             todosData[todoIndex].description = newValue;
             textInput.setAttribute('readonly', '');
             editButton.innerHTML = 'Edit';
+            localStorage.setItem('todosData', JSON.stringify(todosData));
           }
+
         });
       });
     });
@@ -113,6 +109,7 @@ newTaskInput.addEventListener('keydown', (event) => {
     if (newTask !== '') {
       addTodoItem(todosData, newTask, loadTodos);
       newTaskInput.value = '';
+      // eslint-disable-next-line no-restricted-globals
       location.reload();
     }
   }
@@ -124,6 +121,7 @@ todoListContainer.addEventListener('click', (event) => {
     const itemId = event.target.dataset.id;
     const itemIndex = todosData.findIndex((item) => item.id === itemId);
     removeTodoItem(todosData, itemIndex);
+    // eslint-disable-next-line no-restricted-globals
     location.reload();
   }
 });

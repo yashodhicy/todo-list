@@ -1,14 +1,11 @@
-
-const addTodoItem = (todos, description, loadTodos) => {
-  let newTodo = {
+const addTodoItem = (todos, description) => {
+  const newTodo = {
     index: todos.length,
     description,
     completed: false,
   };
   todos.push(newTodo);
-  console.log(todos);
   localStorage.setItem('todosData', JSON.stringify(todos));
-  
 };
 
-module.exports = addTodoItem; 
+module.exports = addTodoItem;
