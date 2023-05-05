@@ -1,9 +1,13 @@
 /* eslint-disable linebreak-style */
 import './style.css';
 
-const addTodoItem = require('./add.js');
+const addTodoItem = require('./module/add.js');
 
-const removeTodoItem = require('./remove.js');
+const removeTodoItem = require('./module/remove.js');
+
+const updateTodoStatus = require('./module/update.js');
+
+const Clearcomplete = require('./module/clearcompleted.js');
 
 const todoListContainer = document.querySelector('.todolistbody');
 
@@ -24,6 +28,7 @@ const loadTodos = () => {
       checkbox.setAttribute('type', 'checkbox');
       checkbox.setAttribute('id', todo.index);
       checkbox.setAttribute('value', todo.id);
+      checkbox.setAttribute('class', 'checkboxinput');
       if (todo.completed) {
         checkbox.setAttribute('checked', '');
       }
@@ -57,6 +62,14 @@ const loadTodos = () => {
       todoListItem.appendChild(actionDiv);
 
       todoListContainer.querySelector('.todolist').appendChild(todoListItem);
+
+      checkbox.addEventListener('change', () => {
+        const isChecked = checkbox.checked;
+        const itemId = checkbox.id;
+        updateTodoStatus(todosData, itemId, isChecked);
+        // eslint-disable-next-line no-restricted-globals
+        location.reload();
+      });
 
       // add event listener to the action div
       actionDiv.addEventListener('click', (event) => {
@@ -92,10 +105,16 @@ const loadTodos = () => {
         });
       });
     });
-    const clear = document.createElement('li');
+    const clear = document.createElement('button');
     clear.classList.add('clearCompleted');
     clear.innerText = 'Clear All Completed';
     todoListContainer.querySelector('.todolist').appendChild(clear);
+
+    clear.addEventListener('click', () => {
+      Clearcomplete(todosData);
+      // eslint-disable-next-line no-restricted-globals
+      location.reload();
+    });
   }
 };
 
