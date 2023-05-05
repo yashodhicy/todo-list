@@ -80,3 +80,9 @@ body {
   border-radius: 50%;
   background-color: #525252;
 }
+
+.editbut,
+.delete {
+  margin-right: 0.5rem;
+  height: 1.3rem;
+}
