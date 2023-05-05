@@ -38,8 +38,8 @@ module.exports = {
     extensions: ['.js'],
     modules: ['node_modules'],
     alias: {
-      'add': path.resolve(__dirname, 'src/add.js'),
-      'remove': path.resolve(__dirname, 'src/remove.js'),
+      add: path.resolve(__dirname, 'src/add.js'),
+      remove: path.resolve(__dirname, 'src/remove.js'),
     },
   },
   mode: 'development',

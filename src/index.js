@@ -89,7 +89,6 @@ const loadTodos = () => {
             editButton.innerHTML = 'Edit';
             localStorage.setItem('todosData', JSON.stringify(todosData));
           }
-
         });
       });
     });
