@@ -5,16 +5,13 @@ const addTodoItem = require('./module/add.js');
 
 const removeTodoItem = require('./module/remove.js');
 
-const updateTodoStatus = require('./module/update.js')
+const updateTodoStatus = require('./module/update.js');
 
-const Clearcomplete = require('./module/clearcompleted.js')
+const Clearcomplete = require('./module/clearcompleted.js');
 
 const todoListContainer = document.querySelector('.todolistbody');
 
-
 const todosData = JSON.parse(localStorage.getItem('todosData')) || [];
-
-
 
 const loadTodos = () => {
   if (todosData.length > 0) {
@@ -35,8 +32,7 @@ const loadTodos = () => {
       if (todo.completed) {
         checkbox.setAttribute('checked', '');
       }
-      
-      
+
       const textInput = document.createElement('input');
       textInput.setAttribute('class', 'listinput');
       textInput.setAttribute('type', 'text');
@@ -66,13 +62,13 @@ const loadTodos = () => {
       todoListItem.appendChild(actionDiv);
 
       todoListContainer.querySelector('.todolist').appendChild(todoListItem);
-      
-      checkbox.addEventListener('change', (event) => {
+
+      checkbox.addEventListener('change', () => {
         const isChecked = checkbox.checked;
         const itemId = checkbox.id;
         updateTodoStatus(todosData, itemId, isChecked);
         // eslint-disable-next-line no-restricted-globals
-      location.reload();
+        location.reload();
       });
 
       // add event listener to the action div
@@ -113,9 +109,10 @@ const loadTodos = () => {
     clear.classList.add('clearCompleted');
     clear.innerText = 'Clear All Completed';
     todoListContainer.querySelector('.todolist').appendChild(clear);
-    
-    clear.addEventListener('click', (event) => {
+
+    clear.addEventListener('click', () => {
       Clearcomplete(todosData);
+      // eslint-disable-next-line no-restricted-globals
       location.reload();
     });
   }
@@ -151,5 +148,5 @@ window.addEventListener('load', () => {
   const savedTodosData = JSON.parse(localStorage.getItem('todosData'));
   if (savedTodosData) {
     loadTodos();
-    }
+  }
 });
