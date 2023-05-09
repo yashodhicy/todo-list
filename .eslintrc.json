@@ -18,6 +18,11 @@
         "js": "always", "json": "always"
       }]
     },
+    "settings": {
+      "import/core-modules": [
+       "copy-webpack-plugin"
+      ]
+     },
     "ignorePatterns": [
       "dist/",
       "build/"
