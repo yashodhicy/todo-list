@@ -54,11 +54,11 @@
 ## 🚀 Live Demo(still in development) <a name="live-demo"></a>
 
 
-- [live project](#)
+- [live project](https://yashodhicy.github.io/todo-list/)
 
 ## 🚀 Live Video(still in development) <a name="live-video"></a>
 
-- [live video ](#)
+<!-- - [live video ](#) -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -135,7 +135,7 @@ To use this project on the `index.html` file with your prefered browser
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/rachaouldbabaali/awsome-books/issues).
+Feel free to check the [issues page](https://github.com/yashodhicy/todo-list/issues)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
