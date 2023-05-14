@@ -143,14 +143,11 @@ todoListContainer.addEventListener('click', (event) => {
   
   if (event.target.classList.contains('delete')) {
     const deletebtn = todoListContainer.querySelector('.delete');
-    console.log(deletebtn);
-      const itemId = deletebtn.parentElement.getAttribute('data-id');
-  
-      const itemIndex = todosData.findIndex((item) => item.index === parseInt(itemId));
-  
-      removeTodoItem(todosData, itemIndex);
- 
-      location.reload();
+    const itemId = deletebtn.parentElement.getAttribute('data-id');
+    const itemIndex = todosData.findIndex((item) => item.index === parseInt(itemId));
+    removeTodoItem(todosData, itemIndex);
+    // eslint-disable-next-line no-restricted-globals
+    location.reload();
 
     }
   
