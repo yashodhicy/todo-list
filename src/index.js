@@ -90,9 +90,11 @@ const loadTodos = () => {
 
         editButton.addEventListener('click', () => {
           const li = editButton.closest('li');
+          editButton.closest('input');
           const textInput = li.querySelector('.listinput');
           if (textInput.hasAttribute('readonly')) {
             textInput.removeAttribute('readonly');
+            textInput.focus();
             editButton.innerHTML = 'Save';
           } else {
             const newValue = textInput.value;
@@ -104,6 +106,7 @@ const loadTodos = () => {
           }
         });
       });
+      return checkbox;
     });
     const clear = document.createElement('button');
     clear.classList.add('clearCompleted');
@@ -133,20 +136,40 @@ newTaskInput.addEventListener('keydown', (event) => {
   }
 });
 
-// delete a todo task
+
+//console.log(deletebtn);
+//delete a todo task
 todoListContainer.addEventListener('click', (event) => {
+  
   if (event.target.classList.contains('delete')) {
-    const itemId = event.target.dataset.id;
-    const itemIndex = todosData.findIndex((item) => item.id === itemId);
-    removeTodoItem(todosData, itemIndex);
-    // eslint-disable-next-line no-restricted-globals
-    location.reload();
-  }
+    const deletebtn = todoListContainer.querySelector('.delete');
+    console.log(deletebtn);
+      const itemId = deletebtn.parentElement.getAttribute('data-id');
+  
+      const itemIndex = todosData.findIndex((item) => item.index === parseInt(itemId));
+  
+      removeTodoItem(todosData, itemIndex);
+ 
+      location.reload();
+
+    }
+  
 });
+
+
+
 
 window.addEventListener('load', () => {
   const savedTodosData = JSON.parse(localStorage.getItem('todosData'));
   if (savedTodosData) {
     loadTodos();
+    
   }
 });
+
+
+
+
+
+  
+
